@@ -1,0 +1,24 @@
+---
+dependency:
+  name: galaxy
+  requirements_file: requirements.yml
+
+driver:
+  name: docker
+
+docker:
+  containers:
+    - name: common-role
+      dockerfile: tests/dockerfile
+      image: centos-with-cron
+      image_version: 7.2.1511
+      ansible_groups:
+        - group1
+      environment:
+        http_proxy: "http://reformmgmtproxyout.reform.hmcts.net:8080/"
+
+verifier:
+  name: testinfra
+
+ansible:
+  playbook: tests/playbook.yml

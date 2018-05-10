@@ -1,0 +1,7 @@
+---
+- hosts: all
+  vars:
+    yum_packages:
+      - "htop"
+  roles:
+    - role: common-role

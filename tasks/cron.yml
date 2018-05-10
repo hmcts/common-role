@@ -1,0 +1,8 @@
+- name: Install a cron job to clean /tmp regularly
+  cron:
+    user: "root"
+    name: "clean tmp"
+    minute: "0"
+    hour: "23"
+    job: 'find /tmp/* -mtime +5 -maxdepth 1 -exec rm -rf {} \;'
+  become: yes

@@ -1,0 +1,15 @@
+---
+
+pip_packages: []
+yum_packages: []
+npm_packages: []
+
+common_packages:
+  - git
+  - python
+  - python-pip
+  - cronie-anacron
+  - crontabs
+  - cronie
+
+common_role_enable_repos: []

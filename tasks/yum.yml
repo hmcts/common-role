@@ -1,0 +1,28 @@
+---
+
+- name: Copy over packages
+  copy:
+    src: "{{ item.path }}"
+    dest: "/tmp/{{ item.path | basename }}"
+  with_items:
+    - "{{ yum_packages }}"
+  when: ('path' in item)
+
+- name: Install common packages
+  yum:
+    name: "{{ item }}"
+    state: present
+    enablerepo: "{{ common_role_enable_repos | join(',') }}"
+  with_items:
+    - "{{ common_packages }}"
+  become: yes
+
+- name: Install aggregate packages
+  yum:
+    name: "{{ item }}"
+    state: present
+    enablerepo: "{{ common_role_enable_repos | join(',') }}"
+  with_items:
+    - "{{ yum_packages | selectattr('path', 'undefined') | list }}"
+    - "{{ yum_packages | selectattr('path', 'defined') | map(attribute='path') | map('basename') | map('regex_replace', '^(.*)$', '/tmp/\\1') | list }}"
+  become: yes

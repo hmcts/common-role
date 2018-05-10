@@ -1,0 +1,13 @@
+---
+
+- name: Include environment specific vars
+  include_vars: "env_vars/{{ deploy_target }}.yml"
+  when: deploy_target is defined
+
+- include: yum.yml
+
+- include: pip_packages.yml
+
+- include: npm_packages.yml
+
+- include: cron.yml

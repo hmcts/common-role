@@ -1,0 +1,10 @@
+galaxy_info:
+  author: HMCTS
+  description: Common things for reform
+  company: HMCTS
+  license: MIT
+
+  galaxy_tags: []
+
+dependencies:
+  - role: devops.repos

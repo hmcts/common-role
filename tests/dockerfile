@@ -1,0 +1,3 @@
+FROM centos:7.2.1511
+ENV container docker
+RUN http_proxy="http://reformmgmtproxyout.reform.hmcts.net:8080/" yum -y install cronie
