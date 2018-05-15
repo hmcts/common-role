@@ -7,4 +7,7 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - role: devops.repos
+  - name: devops.repos
+    src: git@git.reform.hmcts.net:devops/repos-role.git
+    scm: git
+    version: master
