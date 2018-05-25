@@ -1,10 +1,12 @@
 ---
 
 - name: Set up pip.ini config
-  copy:
-    src: files/pip.conf
+  template:
+    src: pip.conf.j2
     dest: /etc/pip.conf
     mode: 0644
+    owner: root
+    group: root
 
 - name: Update pip
   pip:
