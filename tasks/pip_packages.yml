@@ -9,7 +9,7 @@
 - name: Update pip
   pip:
     name: pip
-    state: present
+    state: latest
   become: yes
 
 - name: Install common pip packages
