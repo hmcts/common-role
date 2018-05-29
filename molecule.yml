@@ -22,4 +22,4 @@ verifier:
 
 ansible:
   playbook: tests/playbook.yml
-  extra_vars: jenkins_common_role_proxy_host=reformmgmtproxyout.reform.hmcts.net jenkins_common_role_proxy_port=8080
+  extra_vars: proxy.host=reformmgmtproxyout.reform.hmcts.net proxy.port=8080
